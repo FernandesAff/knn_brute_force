@@ -1,0 +1,10 @@
+all: main
+
+knn.o: knn.c knn.h yael/vector.h
+	gcc -c -Wall -g $< 
+
+main: main.c knn.o
+	gcc -Wall -g -o $@ $^ -lfftw3f 
+
+clean: 
+	rm -f *.o main
